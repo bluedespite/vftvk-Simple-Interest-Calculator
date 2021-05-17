@@ -1,13 +1,18 @@
 function compute()
 {
-    var principal=document.getElementById("principal").value;
+    var principal=document.getElementById("principal");
     var rate=document.getElementById("rate").value;
     var years=document.getElementById("years").value;
-    var interest=principal*years*rate/100;
+    var interest=principal.value*years*rate/100;
     var year=new Date().getFullYear()+parseInt(years);
     var s=document.getElementById("result");
-    s.innerHTML="<br> If you Deposit <mark>"+principal+ "</mark>,<br> at an interest rate of <mark>"+rate+"%</mark>, <br> You receive an amount of <mark>"+interest+"</mark>, <br> in the year <mark>"+year+"</mark>";
-} 
+   if (principal.value<=0)
+    {alert("Enter a positive numer");
+    principal.focus;
+    }
+    else{
+    s.innerHTML="<br> If you Deposit <mark>"+principal.value+ "</mark>,<br> at an interest rate of <mark>"+rate+"%</mark>, <br> You receive an amount of <mark>"+interest+"</mark>, <br> in the year <mark>"+year+"</mark>";
+} }
 
 function updateRate()
 {
